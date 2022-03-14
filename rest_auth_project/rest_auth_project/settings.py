@@ -37,7 +37,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'authentication_app',
+    'crispy_forms',
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
+REST_FRAMEWORK ={
+    'DEFALUT_AUTHENTICATION_CLASS':[
+        #'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFALUT_PERMISSIONS_CLASS': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -114,8 +127,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
+MEDIA_URL = 'image/'
 
 STATIC_URL = 'static/'
+STATICFILES_DIR = [BASE_DIR/'static/']
+STATIC_ROOT = [BASE_DIR/'static/']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
