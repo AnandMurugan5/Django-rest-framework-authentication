@@ -20,4 +20,5 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',include('authentication_app.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
